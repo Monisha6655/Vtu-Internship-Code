@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monisha B R | Creative Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:#0f0f0f;color:white;overflow-x:hidden;}
+header{position:fixed;width:100%;display:flex;justify-content:space-between;align-items:center;padding:25px 80px;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);z-index:1000;}
+.logo{font-weight:700;font-size:20px;letter-spacing:2px;}
+nav ul{display:flex;list-style:none;gap:40px;}
+nav a{text-decoration:none;color:white;transition:0.3s;}
+nav a:hover{color:#00ffcc;}
+section{padding:140px 80px;}
+.section-title{font-size:45px;margin-bottom:50px;color:#00ffcc;}
+
+/* HERO UNIQUE */
+#home{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle at top left,#00ffcc15,#000 60%);
+}
+
+.intro-text{color:#00ffcc;letter-spacing:3px;margin-bottom:10px;}
+.main-name{
+font-size:80px;font-weight:800;letter-spacing:6px;
+background:linear-gradient(90deg,#00ffcc,#00aaff,#00ffcc);
+background-size:200%;
+-webkit-background-clip:text;
+color:transparent;
+animation:shine 5s linear infinite;
+}
+@keyframes shine{0%{background-position:0%}100%{background-position:200%}}
+
+.typing-text{margin-top:20px;font-size:28px;color:#ccc;height:40px;}
+.hero-description{margin-top:20px;max-width:600px;margin:auto;color:#aaa;line-height:1.8;}
+.hero-buttons{margin-top:40px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+.hero-btn{padding:14px 35px;background:linear-gradient(90deg,#00ffcc,#00aaff);border:none;color:black;font-weight:bold;text-decoration:none;border-radius:30px;transition:0.3s;}
+.hero-btn:hover{transform:scale(1.05);}
+.hero-outline-btn{padding:14px 35px;border:2px solid #00ffcc;color:#00ffcc;text-decoration:none;border-radius:30px;transition:0.3s;}
+.hero-outline-btn:hover{background:#00ffcc;color:black;}
+
+/* ABOUT */
+.about-container{display:flex;flex-wrap:wrap;gap:60px;align-items:center;}
+.about-img img{width:300px;border-radius:25px;box-shadow:0 0 30px rgba(0,255,204,0.4);}
+.about-text{max-width:600px;line-height:1.8;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;}
+.skill-card{background:rgba(255,255,255,0.05);padding:40px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);transition:0.4s;text-align:center;}
+.skill-card:hover{transform:translateY(-10px);box-shadow:0 0 20px #00ffcc;}
+.skill-card i{font-size:35px;color:#00ffcc;margin-bottom:15px;}
+
+/* PROJECTS */
+.project-card{border-left:3px solid #00ffcc;padding-left:25px;margin-bottom:60px;position:relative;}
+.project-card::before{content:'';position:absolute;left:-10px;top:10px;width:15px;height:15px;background:#00ffcc;border-radius:50%;}
+.project-card h3{color:#00ffcc;margin-bottom:10px;}
+.project-card p{line-height:1.8;text-align:justify;margin-bottom:10px;}
+
+/* CONTACT */
+#contact{background:linear-gradient(135deg,#0f0f0f,#1c1c1c);}
+.contact-container{display:flex;gap:60px;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+.contact-left{flex:1;max-width:500px;}
+.contact-left h2{font-size:35px;margin-bottom:20px;background:linear-gradient(90deg,#00ffcc,#00aaff);-webkit-background-clip:text;color:transparent;}
+.contact-left p{margin-bottom:30px;line-height:1.8;color:#ccc;}
+.contact-info-line{display:flex;align-items:center;gap:15px;margin-bottom:20px;font-size:18px;}
+.contact-info-line i{color:#00ffcc;}
+.contact-info-line a{color:white;text-decoration:none;transition:0.3s;}
+.contact-info-line a:hover{color:#00ffcc;}
+.contact-right{flex:1;}
+.contact-right form{background:rgba(255,255,255,0.05);padding:40px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);}
+.contact-right input,.contact-right textarea{width:100%;padding:15px;margin-bottom:20px;background:#111;border:none;border-radius:8px;color:white;}
+.contact-right button{width:100%;padding:15px;border:none;border-radius:8px;background:linear-gradient(90deg,#00ffcc,#00aaff);color:black;font-weight:bold;cursor:pointer;transition:0.3s;}
+.contact-right button:hover{transform:scale(1.05);}
+
+/* FOOTER */
+footer{background:#000;padding:60px 20px;text-align:center;border-top:1px solid rgba(255,255,255,0.1);}
+footer h2{color:#00ffcc;margin-bottom:10px;}
+footer p{color:#aaa;margin-bottom:20px;}
+.footer-links{display:flex;justify-content:center;gap:30px;margin-bottom:20px;flex-wrap:wrap;}
+.footer-links a{color:#ccc;text-decoration:none;}
+.footer-links a:hover{color:#00ffcc;}
+.footer-bottom{color:#666;font-size:14px;}
+
+@media(max-width:768px){
+header{padding:20px;flex-direction:column;gap:10px;}
+section{padding:100px 20px;}
+.hero h1{font-size:45px;}
+.contact-container{flex-direction:column;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">MONISHA</div>
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="home">
+<div class="hero">
+<h4 class="intro-text">Hello, I'm</h4>
+<h1 class="main-name">MONISHA B R</h1>
+<h2 class="typing-text"><span id="typed"></span></h2>
+<p class="hero-description">I design intelligent systems and craft elegant web experiences that combine creativity with technology.</p>
+<div class="hero-buttons">
+<a href="#projects" class="hero-btn">Explore My Work</a>
+<a href="#contact" class="hero-outline-btn">Hire Me</a>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="about-container">
+<div class="about-img">
+<img src="monishabr.jpeg" alt="Monisha">
+</div>
+<div class="about-text">
+<h2 class="section-title">About Me</h2>
+<p>I am a passionate Computer Science Engineering student with a strong interest in Web Development and Artificial Intelligence. With a solid foundation in Java, Python, and SQL, I approach challenges using logical thinking and structured problem-solving techniques. I enjoy building intelligent and scalable applications while continuously learning new technologies. My goal is to grow into a professional developer who combines creativity and technical expertise to build impactful digital solutions.</p>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="section-title">Skills</h2>
+<div class="skills-grid">
+<div class="skill-card"><i class="fa-solid fa-code"></i><h3>Programming</h3><p>Java, Python</p></div>
+<div class="skill-card"><i class="fa-solid fa-globe"></i><h3>Web Development</h3><p>HTML, CSS</p></div>
+<div class="skill-card"><i class="fa-solid fa-database"></i><h3>Database</h3><p>SQL</p></div>
+<div class="skill-card"><i class="fa-solid fa-brain"></i><h3>AI / ML</h3><p>TensorFlow, CNN, OpenCV, NumPy</p></div>
+<div class="skill-card"><i class="fa-solid fa-laptop-code"></i><h3>Tools</h3><p>VS Code, Eclipse, Jupyter Notebook, GitHub</p></div>
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title">Projects</h2>
+
+<div class="project-card">
+<h3>AI-Powered Deficiency Detection System</h3>
+<p><strong>Tools Used:</strong> Python, TensorFlow, CNN, OpenCV, NumPy</p>
+<p>This project detects nutrient deficiencies using deep learning and image processing techniques. A CNN model built with TensorFlow analyzes hair and nail images after preprocessing with OpenCV. The trained model classifies deficiency types accurately and provides real-time prediction results.</p>
+</div>
+
+<div class="project-card">
+<h3>License Plate Detection and Recognition System</h3>
+<p><strong>Tools Used:</strong> Python, OpenCV, Machine Learning</p>
+<p>This system detects and recognizes vehicle license plates using computer vision techniques. It applies grayscale conversion, edge detection, and contour detection to extract plate regions, followed by machine learning-based character recognition.</p>
+</div>
+
+<div class="project-card">
+<h3>Hall Ticket Generation & Faculty Allocation System</h3>
+<p><strong>Tools Used:</strong> Python, SQL</p>
+<p>This project automates examination management by generating hall tickets and allocating faculty efficiently using structured SQL databases and backend logic developed in Python.</p>
+</div>
+
+</section>
+
+<section id="contact">
+<div class="contact-container">
+<div class="contact-left">
+<h2>Let's Build Something Amazing Together</h2>
+<p>I am open to internships, job opportunities, and collaborations. Feel free to connect anytime.</p>
+<div class="contact-info-line"><i class="fa-solid fa-envelope"></i><a href="mailto:monisha@email.com">monisha@email.com</a></div>
+<div class="contact-info-line"><i class="fa-solid fa-phone"></i><a href="tel:+919876543210">+91 98765 43210</a></div>
+<div class="contact-info-line"><i class="fa-solid fa-location-dot"></i><span>Karnataka, India</span></div>
+</div>
+
+<div class="contact-right">
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+
+<footer>
+<h2>Monisha B R</h2>
+<p>Creative Web & AI Developer crafting intelligent digital experiences.</p>
+<div class="footer-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+<div class="footer-bottom">© 2026 Monisha B R | Designed & Developed with ❤️</div>
+</footer>
+
+<script>
+const textArray=["Creative Web Developer","AI & Machine Learning Enthusiast","Problem Solver & Innovator"];
+let index=0,charIndex=0,currentText="",isDeleting=false;
+const typedElement=document.getElementById("typed");
+function typeEffect(){
+if(index>=textArray.length) index=0;
+currentText=textArray[index];
+if(!isDeleting){
+typedElement.textContent=currentText.substring(0,charIndex+1);
+charIndex++;
+if(charIndex===currentText.length){isDeleting=true;setTimeout(typeEffect,1000);return;}
+}else{
+typedElement.textContent=currentText.substring(0,charIndex-1);
+charIndex--;
+if(charIndex===0){isDeleting=false;index++;}
+}
+setTimeout(typeEffect,isDeleting?50:100);
+}
+typeEffect();
+</script>
+
+</body>
+</html>
