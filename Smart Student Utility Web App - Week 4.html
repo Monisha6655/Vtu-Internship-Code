@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Student Utility Web App</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===================== GLOBAL STYLES ===================== */
+:root {
+    --primary: #4338ca;
+    --success: #15803d;
+    --warning: #ea580c;
+    --danger: #dc2626;
+    --text: #1f2937;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ===================== NAVBAR ===================== */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 15px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+nav h2 {
+    color: var(--primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+/* ===================== SECTIONS ===================== */
+section {
+    padding: 100px 10% 60px;
+    min-height: 100vh;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    color: var(--primary);
+    text-align: center;
+}
+
+/* ===================== HOME ===================== */
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #e0f7fa, #fff3e0);
+}
+
+#home h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+#home p {
+    max-width: 600px;
+    opacity: 0.8;
+}
+
+/* ===================== CARD ===================== */
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Grade badge */
+.grade-badge {
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* ===================== UNIQUE CONTACT SECTION ===================== */
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contact-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    flex: 1;
+    min-width: 280px;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    background: linear-gradient(135deg, #4338ca, #7c3aed);
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+}
+
+.footer-flex h4 {
+    margin-bottom: 10px;
+}
+
+.footer-flex ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-flex ul li {
+    margin-bottom: 5px;
+}
+
+.footer-flex a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-flex a:hover {
+    color: #d1d5db;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width: 768px) {
+    nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .contact-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav>
+    <h2>Student Utility</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#grade">Grade Calculator</a></li>
+        <li><a href="#palindrome">Palindrome</a></li>
+        <li><a href="#number">Number Analyzer</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ===================== HOME ===================== -->
+<section id="home">
+    <h1>Smart Student Utility Web App</h1>
+    <p>
+        A simple and professional student utility web application that helps students 
+        calculate grades, check palindromes, analyze numbers, and validate login credentials 
+        in an interactive way.
+    </p>
+</section>
+
+<!-- ===================== GRADE CALCULATOR ===================== -->
+<section id="grade">
+    <h2 class="section-title">Student Grade Calculator</h2>
+    <div class="card">
+        <input type="text" id="studentName" placeholder="Enter your name">
+
+        <!-- Dynamic marks inputs will appear here -->
+        <div id="marksContainer"></div>
+
+        <button onclick="generateInputs()">Generate 5 Subject Fields</button>
+        <button onclick="calculateGrade()">Calculate Grade</button>
+        <button onclick="resetGrade()">Reset</button>
+
+        <div id="gradeOutput" class="result"></div>
+    </div>
+</section>
+
+<!-- ===================== PALINDROME ===================== -->
+<section id="palindrome">
+    <h2 class="section-title">Palindrome Checker</h2>
+    <div class="card">
+        <input type="text" id="palWord" placeholder="Enter a word">
+        <button onclick="checkPalindrome()">Check</button>
+        <div id="palOutput" class="result"></div>
+    </div>
+</section>
+
+<!-- ===================== NUMBER ANALYZER ===================== -->
+<section id="number">
+    <h2 class="section-title">Number Analyzer</h2>
+    <div class="card">
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button onclick="analyzeNumber()">Analyze</button>
+        <div id="numOutput" class="result"></div>
+    </div>
+</section>
+
+<!-- ===================== LOGIN ===================== -->
+<section id="login">
+    <h2 class="section-title">Login Validation</h2>
+    <div class="card">
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="validateLogin()">Login</button>
+        <div id="loginOutput" class="result"></div>
+    </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" style="background: linear-gradient(135deg, #e0f7fa, #f3e8ff);">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-cards">
+        <!-- Contact Info Card -->
+        <div class="contact-card">
+            <h3 style="color:var(--primary); margin-bottom:15px;">Reach Out</h3>
+            <p><strong>Email:</strong> support@studentutility.com</p>
+            <p><strong>Phone:</strong> +91 9876543210</p>
+            <p><strong>Address:</strong> 123 Learning St, Edu City</p>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="contact-card">
+            <h3 style="color:var(--primary); margin-bottom:15px;">Send a Message</h3>
+            <input type="text" placeholder="Your Name" style="margin-bottom:10px;">
+            <input type="email" placeholder="Your Email" style="margin-bottom:10px;">
+            <textarea rows="4" placeholder="Your Message" style="margin-bottom:10px;"></textarea>
+            <button onclick="alert('Message Sent Successfully!')" style="width:100%; background:linear-gradient(90deg, #4338ca, #7c3aed);">Send Message</button>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+    <div class="footer-flex">
+        <!-- Branding -->
+        <div>
+            <h2>Student Utility</h2>
+            <p style="max-width:250px; opacity:0.9;">
+                Making learning fun and easy Grade Calculator, Palindrome Checker, Number Analyzer & More.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#grade">Grade Calculator</a></li>
+                <li><a href="#palindrome">Palindrome</a></li>
+                <li><a href="#number">Number Analyzer</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align:center; margin-top:25px; opacity:0.8;">
+        © 2026 Smart Student Utility | All Rights Reserved
+    </div>
+</footer>
+
+<!-- ===================== SCRIPT ===================== -->
+<script>
+/* ----------------- GRADE CALCULATOR ----------------- */
+function generateInputs(){
+    const container = document.getElementById("marksContainer");
+    container.innerHTML = "";
+    for(let i = 1; i <= 5; i++){
+        container.innerHTML += `<input type="number" class="mark" placeholder="Subject ${i} Marks">`;
+    }
+}
+
+function calculateGrade(){
+    const userName = document.getElementById("studentName").value || "Student";
+    const marks = document.getElementsByClassName("mark");
+    if(marks.length === 0){
+        alert("Please generate the subject fields first!");
+        return;
+    }
+    let total = 0;
+    for(let i = 0; i < marks.length; i++){
+        total += Number(marks[i].value);
+    }
+    const avg = total / marks.length;
+    let grade = "", color = "";
+
+    if(avg >= 90){ grade = "A+"; color = "var(--success)"; }
+    else if(avg >= 75){ grade = "A"; color = "#22c55e"; }
+    else if(avg >= 60){ grade = "B"; color = "#facc15"; }
+    else if(avg >= 50){ grade = "C"; color = "#f97316"; }
+    else{ grade = "Fail"; color = "var(--danger)"; }
+
+    document.getElementById("gradeOutput").innerHTML = 
+        `Name: ${userName} <br>
+         Total: ${total} <br>
+         Average: ${avg.toFixed(2)} <br>
+         Grade: <span class="grade-badge" style="background:${color};">${grade}</span>`;
+}
+
+function resetGrade(){
+    document.getElementById("studentName").value = "";
+    document.getElementById("marksContainer").innerHTML = "";
+    document.getElementById("gradeOutput").innerHTML = "";
+}
+
+/* ----------------- PALINDROME CHECKER ----------------- */
+function checkPalindrome(){
+    const word = document.getElementById("palWord").value.trim();
+    const reversed = word.split("").reverse().join("");
+    document.getElementById("palOutput").innerHTML = word ? (word === reversed ? "Palindrome " : "Not Palindrome ") : "Please enter a word";
+}
+
+/* ----------------- NUMBER ANALYZER ----------------- */
+function analyzeNumber(){
+    const num = Number(document.getElementById("numberInput").value);
+    if(isNaN(num)){ 
+        document.getElementById("numOutput").innerHTML = "Enter a valid number"; 
+        return;
+    }
+    let result = num % 2 === 0 ? "Even<br>" : "Odd<br>";
+    result += num > 0 ? "Positive" : num < 0 ? "Negative" : "Zero";
+    document.getElementById("numOutput").innerHTML = result;
+}
+
+/* ----------------- LOGIN VALIDATION ----------------- */
+function validateLogin(){
+    const user = "admin";
+    const pass = "12345";
+    const u = document.getElementById("user").value;
+    const p = document.getElementById("pass").value;
+    document.getElementById("loginOutput").innerHTML = (u === user && p === pass) ? "Login Successful" : "Invalid Credentials ";
+}
+
+</script>
+
+</body>
+</html>
