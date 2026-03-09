@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive Data Dashboard</title>
+
+<style>
+
+/* PAGE STYLE */
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f7fb;
+transition:0.4s;
+}
+
+body.dark{
+background:#1e293b;
+color:white;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#4a6cf7;
+padding:12px 40px;
+color:white;
+}
+
+.nav-left{
+font-size:22px;
+font-weight:bold;
+}
+
+.nav-right a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:16px;
+}
+
+.nav-right a:hover{
+text-decoration:underline;
+}
+
+
+/* HERO SECTION */
+
+.hero{
+background:linear-gradient(135deg,#4a6cf7,#6a8cff);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.9;
+margin-bottom:20px;
+}
+
+.hero button{
+background:white;
+color:#4a6cf7;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+.hero button:hover{
+transform:scale(1.05);
+}
+
+
+/* TITLE */
+
+.title{
+text-align:center;
+font-size:40px;
+font-weight:bold;
+margin:25px;
+}
+
+
+/* DARK MODE BUTTON */
+
+.toggle{
+position:absolute;
+top:70px;
+right:20px;
+padding:10px 15px;
+border:none;
+border-radius:8px;
+background:#4a6cf7;
+color:white;
+cursor:pointer;
+}
+
+
+/* DASHBOARD */
+
+.dashboard{
+width:60%;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:30px;
+}
+
+
+/* CARDS */
+
+.card{
+padding:25px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+min-height:250px;
+transition:0.3s;
+}
+
+.card1{background:#e8f0fe;}
+.card2{background:#fff3e6;}
+.card3{background:#eafaf1;}
+.card4{background:#f3e8ff;}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+
+/* INPUT */
+
+input{
+width:90%;
+padding:10px;
+margin-top:10px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+
+/* BUTTON */
+
+button{
+margin-top:10px;
+padding:10px 15px;
+border:none;
+border-radius:6px;
+background:#4a6cf7;
+color:white;
+cursor:pointer;
+}
+
+
+/* USER CARD */
+
+.user-card{
+background:white;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+text-align:center;
+}
+
+.user-card img{
+border-radius:50%;
+}
+
+
+/* TODO */
+
+.todo{
+display:flex;
+justify-content:space-between;
+margin-top:8px;
+}
+
+.completed{
+text-decoration:line-through;
+opacity:0.6;
+}
+
+
+/* PRODUCTS */
+
+.product{
+padding:6px;
+cursor:pointer;
+border-bottom:1px solid #ddd;
+}
+
+.product:hover{
+background:#ddd;
+}
+
+
+/* LOADING SPINNER */
+
+.spinner{
+border:4px solid #eee;
+border-top:4px solid #4a6cf7;
+border-radius:50%;
+width:30px;
+height:30px;
+animation:spin 1s linear infinite;
+margin-top:10px;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+
+/* WEATHER */
+
+.weather-cards{
+display:flex;
+gap:10px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.weather-card{
+background:white;
+padding:12px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+min-width:120px;
+text-align:center;
+}
+
+
+/* UNIQUE FOOTER */
+
+.footer{
+background:#4a6cf7;
+color:white;
+margin-top:50px;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+padding:40px 20px;
+}
+
+.footer-box{
+width:250px;
+margin:10px;
+}
+
+.footer-box h3{
+margin-bottom:10px;
+}
+
+.footer-box a{
+display:block;
+color:white;
+text-decoration:none;
+margin:5px 0;
+}
+
+.footer-box a:hover{
+text-decoration:underline;
+}
+
+.footer-bottom{
+text-align:center;
+padding:15px;
+background:#3d5be0;
+font-size:14px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="nav-left">My Dashboard</div>
+
+<div class="nav-right">
+<a href="#">Home</a>
+<a href="#">Users</a>
+<a href="#">Weather</a>
+<a href="#">Tasks</a>
+<a href="#">Products</a>
+</div>
+
+</div>
+
+
+<!-- HERO SECTION -->
+
+<div class="hero">
+
+<h1>Welcome to Smart Data Dashboard</h1>
+
+<p>Manage users, check weather, organize tasks, and explore products all in one place.</p>
+
+<button onclick="document.querySelector('.dashboard').scrollIntoView({behavior:'smooth'})">
+Explore Dashboard
+</button>
+
+</div>
+
+
+<button class="toggle" onclick="toggleMode()">Dark / Light</button>
+
+
+<div class="title">Interactive Data Dashboard</div>
+
+
+<div class="dashboard">
+
+
+<!-- RANDOM USER -->
+
+<div class="card card1">
+
+<h2>Random User</h2>
+
+<button onclick="generateUser()">Generate User</button>
+
+<div id="users"></div>
+
+</div>
+
+
+
+<!-- WEATHER -->
+
+<div class="card card2">
+
+<h2>Weather Search</h2>
+
+<input id="city" placeholder="Enter city">
+
+<button onclick="getWeather()">Search</button>
+
+<div id="weather"></div>
+
+</div>
+
+
+
+<!-- TODO -->
+
+<div class="card card3">
+
+<h2>To Do List</h2>
+
+<input id="taskInput" placeholder="Enter task">
+
+<button onclick="addTask()">Add Task</button>
+
+<div id="taskList"></div>
+
+</div>
+
+
+
+<!-- PRODUCT SEARCH -->
+
+<div class="card card4">
+
+<h2>Product Search</h2>
+
+<input id="searchBox" placeholder="Search product" onkeyup="searchProduct()">
+
+<div id="productList"></div>
+
+<div id="productInfo"></div>
+
+</div>
+
+
+</div>
+
+
+<!-- UNIQUE FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>Smart Dashboard</h3>
+<p>
+A simple interactive dashboard built with HTML, CSS and JavaScript.
+Manage users, weather data, tasks and products in one place.
+</p>
+</div>
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<a href="#">Home</a>
+<a href="#">Users</a>
+<a href="#">Weather</a>
+<a href="#">Tasks</a>
+<a href="#">Products</a>
+</div>
+
+<div class="footer-box">
+<h3>Contact</h3>
+<p>Email: dashboard@email.com</p>
+<p>Phone: +91 98765 43210</p>
+<p>Location: India</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 Data Dashboard</p>
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* DARK MODE */
+
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+
+/* RANDOM USER API */
+
+function generateUser(){
+
+var container=document.getElementById("users");
+
+container.innerHTML='<div class="spinner"></div>';
+
+fetch("https://randomuser.me/api/")
+.then(function(response){
+return response.json();
+})
+.then(function(data){
+
+var user=data.results[0];
+
+var html=
+'<div class="user-card">'+
+'<img src="'+user.picture.medium+'">'+
+'<p><b>'+user.name.first+' '+user.name.last+'</b></p>'+
+'<p>'+user.email+'</p>'+
+'<p>'+user.location.country+'</p>'+
+'</div>';
+
+container.innerHTML=html;
+
+});
+
+}
+
+
+/* WEATHER API */
+
+function getWeather(){
+
+var city=document.getElementById("city").value;
+
+var weatherBox=document.getElementById("weather");
+
+weatherBox.innerHTML='<div class="spinner"></div>';
+
+fetch("https://geocoding-api.open-meteo.com/v1/search?name="+city)
+.then(function(res){return res.json();})
+.then(function(data){
+
+var lat=data.results[0].latitude;
+var lon=data.results[0].longitude;
+
+fetch("https://api.open-meteo.com/v1/forecast?latitude="+lat+"&longitude="+lon+"&current_weather=true")
+.then(function(res){return res.json();})
+.then(function(result){
+
+var w=result.current_weather;
+
+weatherBox.innerHTML=
+'<div class="weather-cards">'+
+
+'<div class="weather-card">'+
+'<h4>Temperature</h4>'+
+'<p>'+w.temperature+' °C</p>'+
+'</div>'+
+
+'<div class="weather-card">'+
+'<h4>Wind Speed</h4>'+
+'<p>'+w.windspeed+' km/h</p>'+
+'</div>'+
+
+'<div class="weather-card">'+
+'<h4>Weather Code</h4>'+
+'<p>'+w.weathercode+'</p>'+
+'</div>'+
+
+'</div>';
+
+});
+
+});
+
+}
+
+
+/* TODO LIST */
+
+var tasks=JSON.parse(localStorage.getItem("tasks")) || [];
+
+function showTasks(){
+
+var container=document.getElementById("taskList");
+
+container.innerHTML="";
+
+for(var i=0;i<tasks.length;i++){
+
+var task=tasks[i];
+
+var text=task.completed ? '<span class="completed">'+task.text+'</span>' : task.text;
+
+var html=
+'<div class="todo">'+
+'<span onclick="toggleTask('+i+')">'+text+'</span>'+
+'<button onclick="deleteTask('+i+')">Delete</button>'+
+'</div>';
+
+container.innerHTML+=html;
+
+}
+
+}
+
+function addTask(){
+
+var input=document.getElementById("taskInput");
+
+var text=input.value;
+
+if(text==="") return;
+
+tasks.push({text:text,completed:false});
+
+localStorage.setItem("tasks",JSON.stringify(tasks));
+
+input.value="";
+
+showTasks();
+
+}
+
+function deleteTask(index){
+
+tasks.splice(index,1);
+
+localStorage.setItem("tasks",JSON.stringify(tasks));
+
+showTasks();
+
+}
+
+function toggleTask(index){
+
+tasks[index].completed=!tasks[index].completed;
+
+localStorage.setItem("tasks",JSON.stringify(tasks));
+
+showTasks();
+
+}
+
+showTasks();
+
+
+
+/* PRODUCTS */
+
+var products=[
+{name:"Laptop",info:"Portable computer used for work and coding."},
+{name:"Phone",info:"Smartphone used for calls and apps."},
+{name:"Headphones",info:"Audio device for listening privately."},
+{name:"Keyboard",info:"Typing input device."},
+{name:"Mouse",info:"Device used to control cursor."},
+{name:"Camera",info:"Used for taking photos."},
+{name:"Smartwatch",info:"Wearable digital watch."},
+{name:"Tablet",info:"Portable touchscreen device."},
+{name:"Speaker",info:"Audio output device."},
+{name:"Monitor",info:"Computer display screen."}
+];
+
+
+function searchProduct(){
+
+var value=document.getElementById("searchBox").value.toLowerCase();
+
+var list="";
+
+for(var i=0;i<products.length;i++){
+
+var p=products[i];
+
+if(p.name.toLowerCase().includes(value)){
+
+list+='<div class="product" onclick="showProduct('+i+')">'+p.name+'</div>';
+
+}
+
+}
+
+document.getElementById("productList").innerHTML=list;
+
+}
+
+
+function showProduct(index){
+
+var p=products[index];
+
+document.getElementById("productInfo").innerHTML=
+"<h3>"+p.name+"</h3><p>"+p.info+"</p>";
+
+}
+
+</script>
+
+</body>
+</html>
