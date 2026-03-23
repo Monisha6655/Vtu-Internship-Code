@@ -1,0 +1,130 @@
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  min-height: 100vh;
+
+  /* 🌈 Premium gradient */
+  background: linear-gradient(135deg, #e0f2fe, #fce7f3);
+}
+
+/* 🌟 GLASS CARD */
+.home-left {
+  max-width: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge */
+.badge {
+  background: #fee2e2;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Heading */
+.home-left h1 {
+  color: black;
+  font-size: 45px;
+  margin: 20px 0;
+}
+
+.home-left span {
+  color: #ec4899;
+}
+
+/* Paragraph */
+.home-left p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Buttons Container */
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Common Button */
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+  font-size: 15px;
+}
+
+/* Primary button */
+.primary {
+  background: linear-gradient(45deg, #3b82f6, #ec4899);
+  color: white;
+}
+
+.primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+}
+
+/* Outline button */
+.outline {
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+  background: transparent;
+}
+
+.outline:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* ✅ NEW: Resume Button */
+.resume {
+  background: linear-gradient(45deg, #7c3aed, #06b6d4);
+  color: white;
+}
+
+.resume:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+}
+
+/* Right Image */
+.home-right img {
+  width: 350px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.home-right img:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-left {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .home-right img {
+    width: 250px;
+  }
+}

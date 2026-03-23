@@ -1,0 +1,84 @@
+.dashboard {
+  color: black;
+  min-height: 100vh;
+  padding: 50px;
+  text-align: center;
+
+  /* 🌈 Unique soft gradient */
+  background: linear-gradient(135deg, #e0f7fa, #fce7f3);
+}
+
+/* THEME BUTTON */
+.theme-btn {
+  margin: 20px 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg, #6366f1, #ec4899);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+/* STAT CARDS */
+.stat-card {
+  width: 200px;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.stat-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-weight: bold;
+  color: #444;
+}
+
+/* ACTIVITY */
+.activity {
+  max-width: 500px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.activity ul {
+  padding-left: 20px;
+}
+
+.activity li {
+  margin-bottom: 10px;
+  color: #333;
+}
